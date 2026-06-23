@@ -1,0 +1,972 @@
+title = "Bloom & Hues Agro Products"
+url = "/"
+layout = "default"
+==
+function onStart()
+{
+    $this['products'] = \Bloom\Products\Models\Product::all();
+}
+==
+
+
+<section class="hero">
+    <div class="container hero__container">
+        <div class="hero__content">
+            <h1 class="hero__title">Architectural <br>Foliage, <span class="secondary-color">Cultivated</span> for <br>Exquisite Spaces.</h1>
+            <p class="hero__text">Direct from our farm to your grandest designs. Welcome to B&H Agro Products, where we
+                grow and harvest 24 distinct varieties of premium cut greens and structural foliage—cultivated
+                exclusively for luxury weddings, events, and modern interiors.</p>
+            <div class="hero__buttons">
+                <a href="/products" class="btn btn--primary">Shop Now</a>
+                <a href="#" class="btn btn--outline">
+                    <i class="fa-solid fa-phone" class="btn__icon"></i>
+                    Call Us
+                </a>
+            </div>
+            <div class="hero__stats">
+                        <div class="stat">
+                            <span class="stat__number">500+</span>
+                            <span class="stat__label">Clients Served</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number">20+</span>
+                            <span class="stat__label">Foliage Varieties</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number">365</span>
+                            <span class="stat__label">Days Supply</span>
+                        </div>
+                    </div>
+        </div>
+        <!-- <div class="hero__image">
+                    <img src="https://csspicker.dev/api/image/?q=snake+plant+pot&image_type=photo" alt="Beautiful plant in pot">
+                </div> -->
+        <div class="hero__image">
+            <div class="hero__image-bg"></div>
+
+            <img src="{{ 'assets/image/hero_page.png'|theme }}" alt="Beautiful plant in pot">
+        </div>
+    </div>
+</section>
+
+<!-- Trending Plants -->
+<section class="trending" style="position: relative;">
+    <div class="container">
+                <h2 class="new-products__title">Our Collections</h2>
+    <div class="trending__slider swiper">
+        <div class="swiper-wrapper">
+            {% for product in products %}
+            <div class="swiper-slide" style="margin-top: 0px !important;">
+                <div class="trending-card ">
+                    <div class="trending-card__image">
+                                    {% if product.images and product.images[0].image %}
+                                        <img src="{{ product.images[0].image|media }}" alt="{{ product.name }}">
+                                    {% else %}
+                                        <img src="{{ 'assets/image/default-product.png'|theme }}" alt="{{ product.name }}">
+                                    {% endif %}
+                    </div>
+
+                    <div class="trending-card__info">
+                        <span class="trending-card__tag">Trending Now</span>
+
+                        <h3 class="trending-card__title">
+                            {{ product.name }}
+                        </h3>
+
+                        <a href="/product-detail/{{ product.id }}" class="trending-card__link">
+                            View Detail
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    
+    <!-- Optional: Add navigation and pagination -->
+
+</div>
+    </div>
+    <div class="swiper-pagination "></div>
+    <div class="swiper-button-next">    <i class="fa-solid fa-circle-chevron-right"></i>
+</div>
+    <div class="swiper-button-prev">    <i class="fa-solid fa-circle-chevron-left"></i>
+</div>
+        
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const swiper = new Swiper('.trending__slider', {
+        slidesPerView: 2,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: true,
+        },
+          grid: {
+         rows: 2,
+        fill: 'row'
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            dynamicBullets: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+                          grid: {
+                rows: 2,
+                fill: 'row'
+                },
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+            },
+        },
+        // Optional: Add smooth effects
+        effect: 'slide',
+        speed: 600,
+    });
+});
+</script>
+<!-- Why Choose Us -->
+<section class="why-choose" style="position: relative;" id="about">
+    <div class="container why-choose__container">
+        <div role="img" aria-label="Rounded Edge Shape" class="squre-edge"></div>
+        <div role="img" aria-label="Rounded Edge Shape" class="rounded-edge"></div>
+        <div class="why-choose__image">
+            <img src="{{ 'assets/image/why-choose-us.png'|theme }} " alt="Beautiful plant">
+        </div>
+        <div class="why-choose__content">
+            <h2 class="why-choose__title">Why Buy Direct From The Farm</h2>
+            <p class="why-choose__text"> <i class="fas fa-seedling" style="color: #3d7a5a; margin-right: 8px;"></i>
+                Knowing how much you love plants too. We decided to put together a plant guide, something for you.</p>
+            <!-- <div class="feature-list">
+                        <div class="feature">
+                            <div class="feature__icon">
+                                <i data-lucide="hand"></i>
+                            </div>
+                            <div class="feature__info">
+                                <h4 class="feature__title">Hand Planted</h4>
+                                <p class="feature__text">We decided to put together a plant guide, something for you.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature__icon">
+                                <i data-lucide="sun"></i>
+                            </div>
+                            <div class="feature__info">
+                                <h4 class="feature__title">Natural Sunlight</h4>
+                                <p class="feature__text">We decided to put together a plant guide, something for you.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature__icon">
+                                <i data-lucide="wind"></i>
+                            </div>
+                            <div class="feature__info">
+                                <h4 class="feature__title">Clean Air</h4>
+                                <p class="feature__text">We decided to put together a plant guide, something for you.</p>
+                            </div>
+                        </div>
+                    </div> -->
+            <div class="feature-list">
+
+                <!-- 1. No Middlemen -->
+                <div class="feature">
+                    <div class="feature__icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="feature__info">
+                        <h4 class="feature__title">No Middlemen</h4>
+                        <!-- subtitle removed -->
+                    </div>
+                </div>
+
+                <!-- 2. Consistent Quality -->
+                <div class="feature">
+                    <div class="feature__icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <div class="feature__info">
+                        <h4 class="feature__title">Consistent Quality</h4>
+                    </div>
+                </div>
+
+                <!-- 3. Bulk Volume Availability -->
+                <div class="feature">
+                    <div class="feature__icon">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                    <div class="feature__info">
+                        <h4 class="feature__title">Bulk Volume Availability</h4>
+                    </div>
+                </div>
+
+                <!-- 4. Better Pricing -->
+                <div class="feature">
+                    <div class="feature__icon">
+                        <i class="fas fa-tag"></i>
+                    </div>
+                    <div class="feature__info">
+                        <h4 class="feature__title">Better Pricing</h4>
+                    </div>
+                </div>
+
+                <!-- 5. Fresh Harvest Supply -->
+                <div class="feature">
+                    <div class="feature__icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="feature__info">
+                        <h4 class="feature__title">Fresh Harvest Supply</h4>
+                    </div>
+                </div>
+
+                <!-- 6. Custom Cultivation -->
+                <div class="feature">
+                    <div class="feature__icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="feature__info">
+                        <h4 class="feature__title">Custom Cultivation</h4>
+                    </div>
+                </div>
+
+                <!-- 7. Hand Planted (from snippet) -->
+                <div class="feature">
+                    <div class="feature__icon">
+                        <i class="fas fa-hand-peace"></i>
+                    </div>
+                    <div class="feature__info">
+                        <h4 class="feature__title">Hand Planted</h4>
+                    </div>
+                </div>
+
+                <!-- 8. Natural Sunlight (from snippet) -->
+                <div class="feature">
+                    <div class="feature__icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <div class="feature__info">
+                        <h4 class="feature__title">Natural Sunlight</h4>
+                    </div>
+                </div>
+
+                <!-- 9. Clean Air (from snippet) -->
+                <div class="feature">
+                    <div class="feature__icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <div class="feature__info">
+                        <h4 class="feature__title">Clean Air</h4>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== SECTION 2: FARM STATISTICS (new) ===== -->
+<section class="farm-stats">
+    <div class="container">
+        <div class="farm-stats__header">
+            <h2>Farm <span>Statistics</span></h2>
+            <p>Numbers that reflect our commitment &amp; harvest</p>
+        </div>
+
+        <div class="stats-grid">
+            <!-- 1. 50+ Acres -->
+            <div class="stat-item">
+                <div class="stat-item__icon"><i class="fas fa-tree"></i></div>
+                <div class="stat-item__number">50<small>+</small></div>
+                <div class="stat-item__label">Acres Under Cultivation</div>
+            </div>
+            <!-- 2. 100,000+ Stems -->
+            <div class="stat-item">
+                <div class="stat-item__icon"><i class="fas fa-seedling"></i></div>
+                <div class="stat-item__number">100<small>K+</small></div>
+                <div class="stat-item__label">Stems Harvested Monthly</div>
+            </div>
+            <!-- 3. 500+ Clients -->
+            <div class="stat-item">
+                <div class="stat-item__icon"><i class="fas fa-users"></i></div>
+                <div class="stat-item__number">500<small>+</small></div>
+                <div class="stat-item__label">Clients Served</div>
+            </div>
+            <!-- 4. 365 Days -->
+            <div class="stat-item">
+                <div class="stat-item__icon"><i class="fas fa-calendar-check"></i></div>
+                <div class="stat-item__number">365</div>
+                <div class="stat-item__label">Days Supply</div>
+            </div>
+            <!-- 5. 20+ Foliage Varieties -->
+            <div class="stat-item">
+                <div class="stat-item__icon"><i class="fas fa-leaf"></i></div>
+                <div class="stat-item__number">20<small>+</small></div>
+                <div class="stat-item__label">Foliage Varieties</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- ================== SOURCING SECTION ================== -->
+    <section class="why-choose sourcing">
+        <div class="container why-choose__container">
+
+            <!-- LEFT: Static Image Panel -->
+
+
+            <!-- RIGHT: Content Panel with Dropdowns -->
+            <div class="why-choose__content">
+                <h2 class="why-choose__title">Sourcing with B&H Agro Products</h2>
+                <p class="why-choose__text">
+                    <i class="fas fa-seedling"></i>
+                    Knowing how much you love plants too. We decided to put together a plant guide, something for you.
+                </p>
+
+                <div id="dropdownContainer"></div>
+            </div>
+                        <div class="why-choose__image" id="imagePanel">
+                <div class="img-wrapper" id="imageWrapper"></div>
+                <div class="image-fallback" id="imageFallback">
+                    <i class="fas fa-image"></i>
+                    <span>sourcing visual</span>
+                </div>
+            </div>
+
+        </div>
+            <script>
+        (function() {
+            const sourcingData = [
+                {
+                    title: '🌱 For the Industry Professional',
+                    description: 'We partner directly with wedding planners, luxury decor houses, and elite florists to supply high-volume, reliable, and premium-grade structural greens. Unlock custom harvesting timelines and volume pricing tiers tailored for major productions.',
+                    imageUrl: '{{ "assets/image/Wholesale-Plant-Supplier-1.jpg"|theme }}'
+                },
+                {
+                    title: '⚡ For the Modern Interior',
+                    description: 'Bring life to your dining table, foyer, or workspace. Elevate your everyday environment with our long-lasting, minimalist foliage bundles, cut fresh from the B&H farm and delivered straight to your doorstep on a flexible schedule.'
+                },
+                {
+                    title: '🔬 The B&H Agro Products Advantage',
+                    description: '24 Curated Varieties From rigid, grand architectural leaves to delicate, cascading stems, our farm cultivates an extensive, specialized botanical library to fulfill every creative design framework.Elevated Design Aesthetics Every leaf is selected and grown for its unique texture, rich color depth, and structural form. Our diverse portfolio empowers you to break away from traditional fillers and build breathtaking, high-end botanical art Conscious & Sustainable Sourcing At B&H Agro Products, we grow mindfully. Our sustainable agricultural practices provide the ultimate structural foundation for modern designers transitioning toward organic, foam-free event architecture.'
+                }
+            ];
+
+            const imageWrapper = document.getElementById('imageWrapper');
+            const fallbackEl = document.getElementById('imageFallback');
+            const dropdownContainer = document.getElementById('dropdownContainer');
+            const imagePanel = document.getElementById('imagePanel');
+
+            // 1. INJECT SINGLE STATIC IMAGE
+            if (sourcingData.length > 0 && sourcingData[0].imageUrl) {
+                const img = document.createElement('img');
+                img.src = sourcingData[0].imageUrl;
+                img.alt = sourcingData[0].title;
+                img.classList.add('active');
+                img.loading = 'lazy';
+                imageWrapper.appendChild(img);
+
+                imagePanel.classList.add('loading');
+                img.addEventListener('load', function() {
+                    if (img.naturalWidth > 0) {
+                        fallbackEl.classList.remove('show');
+                        imagePanel.classList.remove('loading');
+                    }
+                });
+                img.addEventListener('error', function() {
+                    fallbackEl.classList.add('show');
+                    imagePanel.classList.remove('loading');
+                });
+                if (img.complete) img.dispatchEvent(new Event('load'));
+            } else {
+                fallbackEl.classList.add('show');
+            }
+
+            // 2. INJECT DROPDOWN ITEMS
+            sourcingData.forEach((item) => {
+                const dropdownItem = document.createElement('div');
+                dropdownItem.className = 'dropdown-item';
+
+                const header = document.createElement('div');
+                header.className = 'dropdown-header';
+                header.setAttribute('tabindex', '0');
+                header.setAttribute('role', 'button');
+                header.setAttribute('aria-expanded', 'false');
+
+                const titleEl = document.createElement('h3');
+                titleEl.textContent = item.title;
+
+                const btn = document.createElement('button');
+                btn.className = 'learn-btn';
+                btn.innerHTML = 'Learn More <i class="fas fa-chevron-down"></i>';
+
+                header.appendChild(titleEl);
+                header.appendChild(btn);
+
+                const body = document.createElement('div');
+                body.className = 'dropdown-body';
+
+                const p = document.createElement('p');
+                p.textContent = item.description;
+
+                body.appendChild(p);
+                dropdownItem.appendChild(header);
+                dropdownItem.appendChild(body);
+                dropdownContainer.appendChild(dropdownItem);
+            });
+
+            // 3. DROPDOWN TOGGLE LOGIC
+            const dropdownItems = document.querySelectorAll('.dropdown-item');
+
+            function toggleDropdown(item) {
+                const isExpanded = item.classList.contains('expanded');
+
+                dropdownItems.forEach(other => {
+                    if (other !== item) {
+                        other.classList.remove('expanded');
+                        other.querySelector('.dropdown-header').setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                if (isExpanded) {
+                    item.classList.remove('expanded');
+                    item.querySelector('.dropdown-header').setAttribute('aria-expanded', 'false');
+                } else {
+                    item.classList.add('expanded');
+                    item.querySelector('.dropdown-header').setAttribute('aria-expanded', 'true');
+                }
+            }
+
+            dropdownItems.forEach(item => {
+                const header = item.querySelector('.dropdown-header');
+                const btn = item.querySelector('.learn-btn');
+
+                header.addEventListener('click', (e) => { e.stopPropagation(); toggleDropdown(item); });
+                btn.addEventListener('click', (e) => { e.stopPropagation(); toggleDropdown(item); });
+                header.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleDropdown(item);
+                    }
+                });
+            });
+
+            document.addEventListener('click', function(e) {
+                const section = document.querySelector('.why-choose.sourcing');
+                if (!section.contains(e.target)) {
+                    dropdownItems.forEach(item => {
+                        item.classList.remove('expanded');
+                        item.querySelector('.dropdown-header').setAttribute('aria-expanded', 'false');
+                    });
+                }
+            });
+        })();
+    </script>
+    </section>
+
+<!-- ===== SECTION 3: WHO WE SUPPLY – FLEX MASONRY (NO GAPS) ===== -->
+{% set supplyCategories = [
+
+    {
+        title: 'Export Partners',
+        card_class: 'card-tall',
+        icon: 'fas fa-ship',
+        badge: '🌍 Global',
+        description: 'International foliage export & logistics solutions',
+        image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&h=600&fit=crop'
+    },
+
+    {
+        title: 'Professional Florists',
+        card_class: 'card-small',
+        icon: 'fas fa-leaf',
+        badge: '💐 Fresh',
+        description: 'Premium cut greens and floral foliage supply',
+        image: 'https://images.unsplash.com/photo-1526047932273-341f2a7631f9?w=800&h=600&fit=crop'
+    },
+
+    {
+        title: 'Wedding Designers',
+        card_class: 'card-big',
+        icon: 'fas fa-ring',
+        badge: '✨ Premium',
+        description: 'Luxury wedding installations and botanical styling',
+        image: 'https://images.unsplash.com/photo-1523438885200-e635ba2c371e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    },
+
+    {
+        title: 'Event Production',
+        card_class: 'card-small',
+        icon: 'fas fa-calendar-alt',
+        badge: '🎪 Large Scale',
+        description: 'Corporate events, exhibitions and special occasions',
+        image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&h=600&fit=crop'
+    },
+
+    {
+        title: 'Luxury Hotels',
+        card_class: 'card-small',
+        icon: 'fas fa-hotel',
+        badge: '🏨 Luxury',
+        description: 'Premium greenery for lobbies and hospitality spaces',
+        image: 'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=800&h=600&fit=crop'
+    },
+
+    {
+        title: 'Religious Celebrations',
+        card_class: 'card-wide',
+        icon: 'fas fa-place-of-worship',
+        badge: '🕊️ Sacred',
+        description: 'Temple, church and ceremonial foliage arrangements',
+        image: 'https://images.unsplash.com/photo-1699854227507-4b9ff940652a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    },
+
+    {
+        title: 'Banquet Venues',
+        card_class: 'card-tall',
+        icon: 'fas fa-utensils',
+        badge: '🍽️ Bulk',
+        description: 'High-volume greenery supply for banquet halls',
+        image: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&h=600&fit=crop'
+    },
+
+    {
+        title: 'Retail Distributors',
+        card_class: 'card-small',
+        icon: 'fas fa-store',
+        badge: '🏪 Direct',
+        description: 'Wholesale foliage distribution and retail partnerships',
+        image: 'https://plus.unsplash.com/premium_photo-1765303818754-9e6a27b43ea1?q=80&w=1236&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    }
+
+] %}
+<section class="supply-section">
+    <div class="supply-header">
+        <h2>Who We <span>Supply</span></h2>
+        <p>Trusted by industry leaders across the spectrum</p>
+    </div>
+
+<div class="container supply-grid">
+    {% for item in supplyCategories %}
+        <div class="supply-card {{ item.card_class }} ">
+
+            <div class="supply-card__bg"
+                 style="background-image:url('{{ item.image }}')">
+            </div>
+
+            <div class="supply-card__overlay"></div>
+
+            <div class="supply-card__content">
+                <div class="supply-card__icon">
+                    <i class="{{ item.icon }}"></i>
+                </div>
+
+                <div class="supply-card__label">{{ item.title }}</div>
+
+                <span class="supply-card__badge">
+                    {{ item.badge }}
+                </span>
+
+                <div class="supply-card__desc">
+                    {{ item.description }}
+                </div>
+            </div>
+
+        </div>
+    {% endfor %}
+</div>
+</section>
+
+
+<section class="compare-section" id="compare">
+
+        <div class="supply-header">
+           <h2>Compare Our <span>Foliage</span> Products</h2>
+            <p>Trusted by industry leaders across the spectrum</p>
+        </div>
+    <div class="container">
+
+        <div class="filters">
+
+            <div class="left-filters">
+                <div class="compare-filter-title">
+                    <h3>Compare</h3>
+                </div>
+                <div class="filter-box">
+                    <select id="category">
+                        <option value="">Best For</option>
+                        <option value="Wedding">Wedding</option>
+                        <option value="Luxury">Luxury</option>
+                        <option value="Backdrop">Backdrop</option>
+                    </select>
+                </div>
+
+                <div class="filter-box">
+                    <select id="life">
+                        <option value="">Shelf Life</option>
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="search" placeholder="Search Product...">
+            </div>
+
+        </div>
+
+        <div class="result-count">
+            <div><span id="count"></span> Products Found </div>      
+             <div class="pagination">
+            <button><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="active">1</button>
+            <button>2</button>
+            <button>3</button>
+            <button><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        </div>
+
+        <div class="product-grid" id="products"></div>
+
+    </div>
+
+</section>
+
+<script>
+
+const products = {{ products|json_encode|raw }};
+const productsPerPage = 8;
+let currentPage = 1;
+let filteredProducts = [...products];
+
+function render(page = 1){
+
+    currentPage = page;
+
+    const start = (page - 1) * productsPerPage;
+    const end = start + productsPerPage;
+
+    const pageProducts = filteredProducts.slice(start, end);
+
+    let html = '';
+
+    pageProducts.forEach(item => {
+    console.log(item);
+        let imageFilename = item.images[0].image;
+    const imageUrl = imageFilename ? `/storage/app/media/${imageFilename}` : '/themes/bloom/assets/images/default-product.png';
+            html += `
+        <div class="card">
+
+            <div class="image-box">
+                <img src="${ imageUrl }" alt="${item.name}">
+            </div>
+
+            <div class="card-content">
+
+                <h3>${item.name}</h3>
+
+                <div class="life-row">
+                    <span>Best For</span>
+                    <span class="badge indoor">
+                        ${item.best_for}
+                    </span>
+                </div>
+
+                <div class="life-row">
+                    <span>Shelf Life</span>
+                    <span class="badge decorative">
+                        ${item.shelf_life}
+                    </span>
+                </div>
+
+                <a href="/product-detail/${item.id}">
+                    <button class="compare-btn">
+                        <i class="fas fa-seedling" style=" margin-right: 8px;"></i> View Product
+                    </button>
+                </a>
+
+
+            </div>
+
+        </div>
+        `;
+    });
+
+    const $grid = $("#products");
+
+    $grid.addClass("loading");
+
+    setTimeout(() => {
+
+        $grid.html(html);
+
+        $(".card").each(function(index){
+
+            $(this).css({
+                opacity: 0,
+                transform: "translateY(20px)"
+            });
+
+            setTimeout(() => {
+
+                $(this).css({
+                    opacity: 1,
+                    transform: "translateY(0)",
+                    transition: "all .4s ease"
+                });
+
+            }, index * 50);
+
+        });
+
+        $grid.removeClass("loading");
+
+    }, 200);
+
+    $("#count").text(filteredProducts.length);
+
+    renderPagination();
+}
+
+function renderPagination(){
+
+    const totalPages = Math.ceil(
+        filteredProducts.length / productsPerPage
+    );
+
+    let html = '';
+
+    html += `
+        <button
+            ${currentPage === 1 ? 'disabled' : ''}
+            onclick="changePage(${currentPage - 1})">
+            &lt;
+        </button>
+    `;
+
+    for(let i = 1; i <= totalPages; i++){
+
+        html += `
+            <button
+                class="${currentPage === i ? 'active' : ''}"
+                onclick="changePage(${i})">
+                ${i}
+            </button>
+        `;
+    }
+
+    html += `
+        <button
+            ${currentPage === totalPages ? 'disabled' : ''}
+            onclick="changePage(${currentPage + 1})">
+            &gt;
+        </button>
+    `;
+
+    $(".pagination").html(html);
+}
+
+function changePage(page){
+
+    render(page);
+
+    $('html, body').animate({
+        scrollTop: $('.compare-section').offset().top - 100
+    }, 300);
+}
+
+$("#search,#category,#life").on("keyup change", function(){
+
+    const search = $("#search").val().toLowerCase();
+    const category = $("#category").val();
+    const life = $("#life").val();
+
+    filteredProducts = products.filter(product => {
+
+        return (
+            product.name.toLowerCase().includes(search)
+            &&
+            (category === '' || product.best === category)
+            &&
+            (life === '' || product.life === life)
+        );
+
+    });
+
+    render(1);
+
+});
+
+render();
+
+</script>
+
+
+
+    <!-- ================== NEW LARGE & EXPANDED CONTACT LAYOUT ================== -->
+    <section class="contact-section">
+         <div class="container">
+        <div class="supply-header">
+           <h2>Conatct Us</h2>
+            <p>Trusted by industry leaders across the spectrum</p>
+        </div>
+            <div class="contact-layout" id="contact">
+                <!-- LEFT PANEL: Large Dark-Green Accent Call to Action Box -->
+                    <div class="contact-layout__cta-box">
+                        <h2>Let’s Grow Together</h2>
+                        <p>Stay inspired by sustainable botanical design. Sign up for B&H Agro Products seasonal crop updates, lookbook releases, and styling tips.</p>
+                        
+                        <form class="large-newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+                            <input type="email" placeholder="Enter your email address" required>
+                            <button type="submit">Subscribe Now</button>
+                        </form>
+                    </div>
+
+                <!-- RIGHT PANEL: Expanded Corporate Directory Panel -->
+                <div class="contact-layout__info-box">
+                    <div>
+                        <h3 class="directory-section-title">Corporate Channels</h3>
+                        <div class="directory-grid">
+                            <div class="directory-node">
+                                <div class="icon-frame"><i class="fas fa-envelope"></i></div>
+                                <div class="directory-node__details">
+                                    <!-- <h4>General Inquiry</h4> -->
+                                    <a href="mailto:Info@bloomandhuesagro.com">Info@bloomandhuesagro.com</a>
+                                </div>
+                            </div>
+                            <div class="directory-node">
+                                <div class="icon-frame"><i class="fab fa-instagram"></i></div>
+                                <div class="directory-node__details">
+                                    <!-- <h4>Instagram</h4> -->
+                                    <a href="#" target="_blank">@bloomandhuesagro</a>
+                                </div>
+                            </div>
+                            <div class="directory-node">
+                                <div class="icon-frame"><i class="fas fa-map-marker-alt"></i></div>
+                                <div class="directory-node__details">
+                                    <!-- <h4>Location</h4> -->
+                                    <a href="#" target="_blank">Vill Hasanpur, Ferozpur Road, Baddowal, Punjab, India.</a>
+                                    <!-- <p style="color: #64748b; font-weight: normal; font-size: 0.95rem;">[Insert Location Address Here]</p> -->
+                                </div>
+                            </div>
+                            <!-- <div class="directory-node">
+                                <div class="icon-frame"><i class="fas fa-phone-alt"></i></div>
+                                <div class="directory-node__details">
+                                    <a href="#" target="_blank">+91 98765-12345</a>
+
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                    <!-- Executive Leadership & Management Directory Block -->
+                    <div>
+    <h3 class="directory-section-title">Our Founders & Team</h3>
+
+    <div class="management-hierarchy">
+
+        <div class="management-card">
+            <div class="avatar-frame">
+                <i class="fas fa-user-tie"></i>
+            </div>
+
+            <div class="management-card__meta">
+                <h4>Nishant Jain</h4>
+                <p>Founder & Corporate Director</p>
+
+                <a href="tel:7888398883" class="management-phone">
+                    <i class="fas fa-phone-alt"></i>
+                    78883-98883
+                </a>
+            </div>
+        </div>
+
+        <div class="management-card">
+            <div class="avatar-frame">
+                <i class="fas fa-user"></i>
+            </div>
+
+            <div class="management-card__meta">
+                <h4>Nitin Jain</h4>
+                <p>Sales Executive / B2B Commercial Relations</p>
+
+                <a href="tel:7888398886" class="management-phone">
+                    <i class="fas fa-phone-alt"></i>
+                    78883-98886
+                </a>
+
+                <a href="tel:9465070990" class="management-phone">
+                    <i class="fas fa-phone-alt"></i>
+                    94650-70990
+                </a>
+            </div>
+        </div>
+
+        <div class="management-card">
+            <div class="avatar-frame">
+                <i class="fas fa-id-badge"></i>
+            </div>
+
+            <div class="management-card__meta">
+                <h4>Dr. Divesh Thakur</h4>
+                <p>Production Manager / Agronomy Operations</p>
+
+                <a href="tel:8219305461" class="management-phone">
+                    <i class="fas fa-phone-alt"></i>
+                    82193-05461
+                </a>
+
+                <a href="tel:7888398880" class="management-phone">
+                    <i class="fas fa-phone-alt"></i>
+                    78883-98880
+                </a>
+            </div>
+        </div>
+
+        <div class="management-card">
+            <div class="avatar-frame">
+                <i class="fas fa-seedling"></i>
+            </div>
+
+            <div class="management-card__meta">
+                <h4>B&H Farms</h4>
+                <p>Farm Operations & Support</p>
+
+                <a href="tel:7888398890" class="management-phone">
+                    <i class="fas fa-phone-alt"></i>
+                    78883-98890
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+                </div>
+            </div>
+         </div>
+        
+    </section>
+
+    <script>
+        $(function () {
+            $('.trending-card').matchHeight();
+        });
+    </script>

@@ -1,0 +1,8 @@
+v1.0.1:
+    - 'Initialize plugin'
+v1.0.2:
+    - 'Created table bloom_products_'
+    - builder_table_create_bloom_products_.php
+v1.0.3:
+    - 'Updated table bloom_products_'
+    - builder_table_update_bloom_products_.php

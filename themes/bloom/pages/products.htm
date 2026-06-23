@@ -1,0 +1,218 @@
+title = "Products"
+url = "/products"
+layout = "default"
+==
+function onStart()
+{
+    $this['products'] = \Bloom\Products\Models\Product::all();
+}
+==
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-header__title">Our Products</h1>
+                <p class="page-header__text">Discover our beautiful collection of plants</p>
+            </div>
+        </section>
+
+        <section class="products-section">
+            <div class="container">
+<div class="products-grid">
+
+
+
+<style>
+    .product-item {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.product-item__image {
+    position: relative;
+    height: 400px;
+}
+
+.product-item__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease;
+}
+
+.product-item__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, .85), rgba(0, 0, 0, .2), #0000004f);
+    z-index: 1;
+
+}
+
+.product-item__info {
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    bottom: 20px;
+    z-index: 2;
+    color: #fff;
+    padding: 0px;
+}
+
+.product-item__category {
+    display: inline-block;
+    margin-bottom: 0px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+        font-weight: 500;
+    color: #ffffff;
+    /* position: absolute;
+    left: 0px;
+    top: -328%; */
+    margin-bottom: 5px;
+}
+
+.product-item__name {
+    margin: 0 0 0px;
+    color: #fff;
+    font-size: 25px;
+}
+
+.product-item__price {
+    margin-bottom: 15px;}
+
+.product-item__price-current {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.product-item__price-old {
+    margin-left: 10px;
+    text-decoration: line-through;
+    opacity: .7;
+}
+
+.product-item__btn {
+    display: inline-flex;
+}
+
+.product-item:hover img {
+    transform: scale(1.08);
+}
+
+.best_for{
+    display: grid;
+    background:var(--green);
+    width: 55px;
+    padding: 15px 5px;
+    border-radius: 59%;
+    /* height: 50px; */
+    justify-items: center;
+    /* line-height: 30px; */
+    font-size: 7px;
+    text-transform: capitalize;
+    position: absolute;
+    right: -5%;
+    top: -393%;
+    color:white;
+}
+@media (max-width: 768px){
+
+    .trending__grid, .products-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .products-grid {
+        gap: 10px;
+    }
+.product-item__image {
+    position: relative;
+    height: 300px;
+}
+
+.product-item__name {
+        font-size: 17px;
+            margin: 0 0 4px;
+
+}
+.product-item__info {
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    bottom: 20px;
+    z-index: 2;
+    color: #fff;
+    text-align: center;
+    padding: 0px;
+}
+.product-item__category {
+    display: inline-block;
+    margin-bottom: 0px;
+    font-size: 13px;}
+    .product-item__price {
+    display: flex;
+    align-items: center;
+        margin-bottom: 5px;
+    }
+
+    .btn {
+            padding: 6px 19px;
+    }
+}
+</style>
+    {% for product in products %}
+
+<a href="{{ 'product-detail'|page({ id: product.id }) }}" class="product-item">
+
+    <div class="product-item__image">
+          {% if product.images and product.images[0].image %}
+            <img src="{{ product.images[0].image|media }}" alt="{{ product.name }}">
+        {% else %}
+            <img src="{{ 'assets/image/default-product.png'|theme }}" alt="{{ product.name }}">
+        {% endif %}
+
+        <div class="product-item__overlay"></div>
+
+        <div class="product-item__info">
+
+            <div class="product-item__category">
+               <span>Product :</span> <span>{{ product.name }}</span>
+            </div>
+             <div class="product-item__category best_for">
+               <span>Best for </span> <span>{{ product.best_for }}</span>
+            </div>
+
+            <!-- <h3 class="product-item__name">
+                {{ product.name }}
+            </h3> -->
+
+            <!-- <div class="product-item__price">
+                <span class="product-item__price-current">
+                    {{ product.price }}
+                </span>
+
+                {% if product.oldPrice %}
+                <span class="product-item__price-old">
+                    {{ product.oldPrice }}
+                </span>
+                {% endif %}
+            </div> -->
+
+            <span class="btn btn--primary product-item__btn">
+                View Details
+            </span>
+
+        </div>
+
+    </div>
+
+</a>
+
+    {% endfor %}
+
+</div>
+            </div>
+        </section>
+
+   

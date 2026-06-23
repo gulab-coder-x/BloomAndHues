@@ -1,0 +1,11 @@
+name: Product
+form: $/bloom/products/models/product/fields.yaml
+modelClass: bloom\products\Models\Product
+defaultRedirect: bloom/products/productcontroller
+create:
+    redirect: bloom/products/productcontroller
+    redirectClose: bloom/products/productcontroller
+update:
+    redirect: 'bloom/products/productcontroller/update/:id'
+    redirectClose: bloom/products/productcontroller
+    

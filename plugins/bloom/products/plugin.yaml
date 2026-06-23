@@ -1,0 +1,11 @@
+plugin:
+    name: 'bloom.products::lang.plugin.name'
+    description: 'This Plugin is used for product insert'
+    author: Bloom
+    icon: oc-icon-adjust
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: 'Menu Item'
+        url: bloom/products/productcontroller
+        icon: icon-life-ring

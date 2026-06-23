@@ -1,0 +1,5 @@
+<?php if (!empty($record->images)): ?>
+    <?php foreach ($record->images as $image): ?>
+        <img src="<?= \Media\Classes\MediaLibrary::url($image['image']) ?>" alt="" width="80" height="80">
+    <?php endforeach ?>
+<?php endif ?>

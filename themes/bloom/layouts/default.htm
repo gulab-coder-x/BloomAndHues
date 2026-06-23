@@ -1,0 +1,143 @@
+description = "Default Layout"
+title = "Home"
+url = "/"
+layout = "default"
+==
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ this.page.title }}</title>
+    <link href="{{ 'assets/style.css'|theme }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- In your <head> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Before closing </body> -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js"></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+</head>
+<body>
+<header class="header">
+    <div class="container header__container">
+
+        <a href="/" class="logo">
+            <span class="logo__text">Bloom & Hues Agro</span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <nav class="nav" id="mobileNav">
+            <a href="/" class="nav__link nav__link--active">Home</a>
+            <a href="/products" class="nav__link">Products</a>
+            <a href="/#compare" class="nav__link">Compare</a>
+            <a href="/#about" class="nav__link">About</a>
+            <a href="/contact" class="nav__link">Contact</a>
+        </nav>
+
+        <div class="header__actions">
+            
+            <a href="tel:7888398883" class="  btn btn--primary">
+                        <i class="fas fa-phone-alt"></i>
+                        +91 78883-98883
+                    </a>
+        </div>
+
+    </div>
+</header>
+        <main>
+            {% page %}
+        </main>
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__brand">
+                <a href="index.html" class="logo">
+                    <!-- <i data-lucide="leaf" class="logo__icon"></i> -->
+                    <span class="logo__text">Bloom & Hues Agro</span>
+                </a>
+                <p class="footer__text">Welcome to B&H Agro Products,exclusively for luxury weddings, events, and modern interiors.</p>
+            </div>
+            <div class="footer__column">
+                <h4 class="footer__title">Quick Links</h4>
+                <a href="/#compare" class="footer__link">Compare Product</a>
+                <a href="/#about" class="footer__link">About Us</a>
+                <a href="/products" class="footer__link">Products</a>
+                <a href="/contact" class="footer__link">Contact</a>
+            </div>
+            <div class="footer__column">
+                <h4 class="footer__title">Company</h4>
+                <!-- <a href="#" class="footer__link">Partnership</a> -->
+                <a href="#" class="footer__link">Terms & Condition</a>
+                <a href="#" class="footer__link">Privacy & Policy</a>
+                <!-- <a href="#" class="footer__link">Sitemap</a> -->
+            </div>
+            <div class="footer__column">
+                <h4 class="footer__title">Get In Touch</h4>
+                <p class="footer__text">Stay inspired by sustainable botanical design. Sign up for B&H Agro Products seasonal crop updates, lookbook releases, and styling tips.</p>
+                <div class="footer__subscribe">
+                    <input type="email" placeholder="Your email" class="footer__input">
+                    <button class="btn btn--primary btn--small">Subscribe</button>
+                </div>
+                <div class="footer__social">
+                    <a href="#" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                    <a href="#" class="social-link">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+
+                    <a href="#" class="social-link">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#" class="social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>Copyright &copy; 2026. All Right Reserved</p>
+        </div>
+    </footer>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    const overlay = document.getElementById('menuOverlay');
+
+    function toggleMenu() {
+        mobileNav.classList.toggle('active');
+        overlay.classList.toggle('active');
+
+        const icon = menuToggle.querySelector('i');
+
+        if (mobileNav.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-xmark');
+        } else {
+            icon.classList.remove('fa-xmark');
+            icon.classList.add('fa-bars');
+        }
+    }
+
+    menuToggle.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+
+});
+</script>
+<div class="menu-overlay" id="menuOverlay"></div>
+</body>
+</html>
+

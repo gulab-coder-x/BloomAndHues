@@ -1,0 +1,53 @@
+fields:
+    name:
+        label: Name
+        span: auto
+        type: text
+    short_description:
+        label: 'Short Description'
+        size: small
+        span: full
+        type: textarea
+    description:
+        label: Description
+        size: large
+        span: full
+        type: richeditor
+    category:
+        label: Category
+        span: auto
+        type: text
+
+    # images:
+    #     label: Images
+    #     type: fileupload
+    #     mode: image
+    images:
+        label: Images
+        type: repeater
+        maxItems: 4
+        form:
+            fields:
+                image:
+                    label: Image
+                    type: mediafinder
+                    mode: image
+    best_for:
+        label: 'Best For'
+        type: text
+        span: auto
+    shelf_life:
+        label: 'Shelf Life'
+        type: text
+        span: auto
+    sku:
+        label: SKU
+        type: text
+        span: auto
+    status:
+        label: Status
+        type: dropdown
+        span: auto
+        options:
+            active: Active
+            inactive: Inactive

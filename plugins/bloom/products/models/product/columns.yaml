@@ -1,0 +1,41 @@
+columns:
+    id:
+        label: id
+        type: number
+    name:
+        label: name
+        type: text
+    short_description:
+        label: short_description
+        type: text
+    description:
+        label: description
+        type: text
+    category:
+        label: category
+        type: text
+    images:
+        label: Preview
+        type: partial
+        path: ~/plugins/bloom/products/models/product/_image_column.htm
+    best_for:
+        label: best_for
+        type: text
+    shelf_life:
+        label: shelf_life
+        type: text
+    status:
+        label: status
+        type: text
+    sku:
+        label: sku
+        type: text
+    created_at:
+        label: created_at
+        type: datetime
+    updated_at:
+        label: updated_at
+        type: datetime
+    deleted_at:
+        label: deleted_at
+        type: datetime

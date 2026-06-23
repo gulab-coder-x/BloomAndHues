@@ -1,0 +1,9 @@
+# Common
+composer.phar
+.DS_Store
+.vite
+.claude
+.idea
+.env
+.env.*.php
+.env.php

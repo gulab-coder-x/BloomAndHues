@@ -1,0 +1,89 @@
+title = "Product-Detail"
+url = "/product-detail/:id"
+layout = "default"
+==
+use Bloom\Products\Models\Product;
+
+function onStart()
+{
+    $this['product'] = Product::find($this->param('id'));
+}
+==
+        <section class="product-detail">
+            <div class="container product-detail__container">
+                <div class="product-detail__gallery">
+
+        <div class="product-detail__thumbnails">
+            {% for image in product.images %}
+                <div class="thumbnail {% if loop.first %}thumbnail--active{% endif %}">
+                    <img
+                        src="{{ image.image|media }}"
+                        alt="{{ product.name }}"
+                        onclick="changeMainImage(this)"
+                    >
+                </div>
+            {% endfor %}
+        </div>
+
+    <div class="product-detail__main-image">
+        {% if product.images|length %}
+            <img
+                id="mainProductImage"
+                src="{{ product.images[0].image|media }}"
+                alt="{{ product.name }}"
+            >
+        {% endif %}
+    </div>
+
+</div>
+
+                <div class="product-detail__info">
+                    <span class="product-detail__category">{{ product.category }}</span>
+                    <h1 class="product-detail__name">{{ product.name }}</h1>
+                    <span class="meta-item__label">Product Description :</span>
+                    
+                    <div class="product-detail__price">
+                            {{ product.description|raw }}
+
+                    </div>
+                    
+                    <!-- <p class="product-detail__description">
+                        {{ product.short_description }}
+                    </p> -->
+                    <div class="product-detail__actions">
+                        <!-- <div class="quantity-selector">
+                            <button>-</button>
+                            <input type="text" value="1" readonly>
+                            <button>+</button>
+                        </div> -->
+                        <button class="btn btn--primary"><a href="/contact">Contact Us For Price</a></button>
+                        <!-- <button class="btn btn--outline"><i data-lucide="heart" style="width:18px;height:18px;"></i></button> -->
+                    </div>
+                    <div class="product-detail__meta">
+                        <div class="meta-item">
+                            <span class="meta-item__label">SKU:</span>
+                            <span class="meta-item__value">{{ product.sku }}</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-item__label">Category:</span>
+                            <span class="meta-item__value">{{ product.category }}</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-item__label">Tags:</span>
+                            <span class="meta-item__value">{{ product.best_for }},{{ product.shelf_life }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script>
+function changeMainImage(element) {
+    document.getElementById('mainProductImage').src = element.src;
+
+    document.querySelectorAll('.thumbnail').forEach(item => {
+        item.classList.remove('thumbnail--active');
+    });
+
+    element.closest('.thumbnail').classList.add('thumbnail--active');
+}
+</script>
