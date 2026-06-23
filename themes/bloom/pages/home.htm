@@ -8,6 +8,15 @@ function onStart()
 }
 ==
 
+<style>
+    @media (max-width: 768px) {
+    .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    }
+}
+</style>
 
 <section class="hero">
     <div class="container hero__container">
@@ -615,6 +624,8 @@ function onStart()
                         <option value="Wedding">Wedding</option>
                         <option value="Luxury">Luxury</option>
                         <option value="Backdrop">Backdrop</option>
+                        <option value="Backdrop">Garden</option>
+
                     </select>
                 </div>
 
@@ -805,9 +816,9 @@ $("#search,#category,#life").on("keyup change", function(){
         return (
             product.name.toLowerCase().includes(search)
             &&
-            (category === '' || product.best === category)
+            (category === '' || product.best_for === category)
             &&
-            (life === '' || product.life === life)
+            (life === '' || product.shelf_life === life)
         );
 
     });
@@ -967,6 +978,6 @@ render();
 
     <script>
         $(function () {
-            $('.trending-card').matchHeight();
+            $('.swiper-slide').matchHeight();
         });
     </script>

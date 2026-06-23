@@ -341,7 +341,7 @@ width: 100%;
 
 .trending-card__tag {
   font-size: 12px;
-  color: var(--gray-light);
+      color: #444141;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   font-weight: 600;
@@ -3095,7 +3095,7 @@ RESPONSIVE
 }
 .trending-card__image {
     flex-shrink: 0;
-    width: 100px;
+    width: 150px;
     height: 150px;
     border-radius: 12px;
     overflow: hidden;
