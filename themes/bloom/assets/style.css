@@ -3070,6 +3070,8 @@ RESPONSIVE
     bottom: 2% !important;
   } 
  
+  .two-no {
+    display: block;}
 
     .swiper-button-next i, .swiper-button-prev i {
       font-size: 70px;
