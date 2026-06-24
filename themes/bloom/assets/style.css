@@ -3071,7 +3071,7 @@ RESPONSIVE
   } 
  
   .two-no {
-    display: block;}
+    display: block !important;}
 
     .swiper-button-next i, .swiper-button-prev i {
       font-size: 70px;
