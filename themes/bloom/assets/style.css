@@ -1412,6 +1412,8 @@ GRID
     margin-bottom:2px;
     font-size:28px;
     font-weight: 500;
+    line-height: 30px;
+
     /* font-family:'Cormorant Garamond',serif; */
 }
 
@@ -1562,6 +1564,7 @@ RESPONSIVE
     .filters{
         flex-direction:column;
     }
+
 }
 
 }
@@ -2170,6 +2173,11 @@ RESPONSIVE
 }
 
 @media (max-width: 768px) {
+  .compare-section {
+
+  .image-box{
+    height:320px;
+  }}
   .hero__container,
   .why-choose__container,
   .how-to-use__container,
@@ -3072,7 +3080,6 @@ RESPONSIVE
  
   .two-no {
     display: block !important;}
-
     .swiper-button-next i, .swiper-button-prev i {
       font-size: 70px;
   }
