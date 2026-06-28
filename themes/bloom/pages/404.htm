@@ -1,0 +1,23 @@
+title = "Page Not Found (404)"
+url = "/404"
+layout = "default"
+==
+
+<style>
+    .page-404 {
+        .banner-404 {
+            padding: 40px 0;
+        }
+    }
+
+</style>
+
+{% put meta %}
+    <meta name="turbo-visit-control" content="error">
+{% endput %}
+<div class="container page-404">
+    <div class="banner-404">
+        <h1>Page Not Found</h1>
+        <p>We're sorry, but the page you requested cannot be found.</p>
+    </div>
+</div>
